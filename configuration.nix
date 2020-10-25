@@ -33,7 +33,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     chromium firefox gitAndTools.gitFull htop qemu-utils wget
+     ag chromium firefox gitAndTools.gitFull htop qemu-utils wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -80,6 +80,12 @@
   #   isNormalUser = true;
   #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   # };
+
+  users.users.test = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMOlEzksQh2pKQ1V6daqoKlcUdCRSTlab9nk9TPzR9dLiC+zsJyJg8nWEu1q+1+QfPtco2+mswoJujnSl7hgQIb+7QmeoqEZXTG2YtixOtucdIoRc6rW0713JVQcT6zET8juj2ydyswGad4buMP3oYAX5pQswyfLVtugokw5szdklOPKEWgsKqPvWeeawV4fi7xZ3WYpP/sJt+Gv6X4R6k5RvaSm4l4bH9FnZS2VN2Qg+obO+XDa+tukuL6lvVtvY9c3aVh6xR9El54SYNmEeOPaWS/KIGAniRGXzXmgUXshZGZ+LxtJIBTpHmSyaPglJzrPNJqDtkBNhSVTrBTihsfJuLp6i+rihAJ8YFNT5zEH19SaSJeI+vATImSprMe3qkHVIDRRb4bCrOFxHgrj7GPWSYkPphZTi5hOCIimuEY1IRZaaDVflfBsw4xC/gkZLenZ2sw2sKoSy4QwuE+P0pOLwfAchvtpFt/tg/Zp8t1EP+Qo6M9yY16j20aptWe20= kr" ];
+  };
 
   # qemu guest for proxmox
   services.qemuGuest.enable = true;
