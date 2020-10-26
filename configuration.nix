@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+# https://nixos.org/manual/nixos/stable/options.html
+{ config, lib, pkgs, ... }:
 
 {
   imports =
