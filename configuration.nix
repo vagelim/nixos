@@ -57,11 +57,19 @@ in
   services.xserver.libinput.tapping = false;
   services.xserver.libinput.disableWhileTyping = true; # don't allow simultaneous keyboard and mouse input
   services.xserver.libinput.scrollMethod = "twofinger";
+  
+  # i3
+  #services.xserver.displayManager.lightdm.enable = true;
+  #services.xserver.windowManager.i3.enable = true;
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.desktopManager.xterm.enable = true;
+
+  # Gnome
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome3.enable = true;
 
   users.users.test = {
     isNormalUser = true;
