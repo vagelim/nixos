@@ -1,6 +1,9 @@
 # https://nixos.org/manual/nixos/stable/options.html
 { config, lib, pkgs, ... }:
 
+let
+  mkSure = lib.mkOverride 0;
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -70,7 +73,11 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.03"; # Did you read the comment?
-  
+
+  # virtualization
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = mkSure true;
+ 
   environment.systemPackages = with pkgs; [
      ag chromium firefox gitAndTools.gitFull htop qemu-utils screen wget
   ];
